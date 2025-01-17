@@ -1,4 +1,4 @@
-# Enhanced Laravel Web Application for Futsal University League Management
+# Laravel Web Application for Futsal University League Management
 
 ## Project Overview
 
