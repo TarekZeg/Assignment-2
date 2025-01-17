@@ -1,5 +1,8 @@
 <x-layout title="Add a team">
 
+    @if (session('success'))
+    <div class="success">{{ session('success') }}</div><br>
+    @endif
 
     <form action='/league' method="POST" class="form">
         @csrf
@@ -48,6 +51,7 @@
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <button type="submit" class="formbutton">Submit</button>
+        <button type="submit" class="formbutton" onclick="return confirm('Are you sure you want to add a new team?')">Submit</button>
     </form>
+
 </x-layout>

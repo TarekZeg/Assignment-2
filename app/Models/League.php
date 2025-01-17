@@ -19,5 +19,11 @@ class League extends Model
         return ($this->goals_scored) - ($this->goals_conceded);
     }
 
+    public function players()
+    {
+        return $this->hasMany(Player::class, 'futsal_standings_id');
+    }
+
+
 
 }

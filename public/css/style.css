@@ -9,51 +9,48 @@ html {
     padding: 0;
     color: #000000; 
   }
-  
-  .drop-menu li a{
-    width: 100%;
-    display: block;
-    padding: 0 0 0 15px;
-    font-weight: 400;
-    border-radius: 0px;
-  }
-  
-  
+
+
   .navbar {
     background-color: #242526;
     padding: 20px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: auto;
     position: fixed;
     width: 100%;
-  
-  }
-  
-  .navbar ul {
-    list-style: none;
+    top: 0;
+    z-index: 1000; 
+}
+
+.navbar ul {
+    list-style: none; 
     margin: 0;
     padding: 0;
-    display: flex;
-  }
-  
-  .navbar li {
-    margin-right: 20px;
-    display: inline-block;
-  
-  }
-  
-  .navbar a {
+    display: flex; /* Align list items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+.navbar li {
+    margin-right: 20px; /* Add spacing between list items */
+    display: inline-block; /* Ensure inline-block behavior */
+}
+
+.navbar li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+}
+
+.navbar a {
     position: relative;
-    text-decoration: none;
-    color: #f2f2f2;
-    font-size: 20px;
-    font-weight: bold;
-    transition: color 0.3s;
-  
-  }
-  
+    text-decoration: none; /* Remove underline from links */
+    color: #f2f2f2; /* Set link color */
+    font-size: 20px; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+
+
   .navbar a::before {
     content: '';
     position: absolute;
@@ -67,16 +64,11 @@ html {
   
   .navbar a:hover::before {
     width: 100%;
-    
   }
+
   .navbar a:hover {
     color: #666869;
   }
-  
-  img {
-    width: 100%;
-  }
-  
 
   
   .addteam{
@@ -138,7 +130,11 @@ html {
     padding: 20px;
     font-size: 17px;
     text-align: center;
-  
+  }
+
+  td input {
+    border: none;
+    background-color: transparent;
   }
   
   .deletebutton {
@@ -175,6 +171,21 @@ html {
   .teamcard h1, p{
     text-align: center;
   }
+
+  .teamcard img {
+    display: block; 
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  .teamcard a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+  }
   
   
   .formbutton{
@@ -196,7 +207,13 @@ html {
     background: #000000;
     }
 
-    .search {
+    .team-text{
+      text-align: center;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .search-team {
       justify-content: center; 
       align-items: center; 
       width: 100%;
@@ -204,7 +221,7 @@ html {
       margin-right: 50px; 
     }
 
-    .search input{
+    .search-team input{
       border-radius: 5px;
       max-width: 300px;
       width: 100%;
@@ -214,7 +231,38 @@ html {
       border: 2px solid black;
     }
 
-    .search button {
+    .search-team button {
+      border: 0;
+      cursor: pointer;
+      background-color: #1b1b1b;
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 18px;
+      transition: 0.3s;
+      max-width: 100px;
+      display: inline;
+    }
+
+    .search-player {
+      justify-content: center; 
+      align-items: center; 
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto; 
+    }
+
+    .search-player input{
+      border-radius: 5px;
+      max-width: 300px;
+      width: 100%;
+      box-sizing: border-box;
+      height: 40px; 
+      margin-right: 10px;
+      border: 2px solid black;
+    }
+
+    .search-player button {
       border: 0;
       cursor: pointer;
       background-color: #1b1b1b;
@@ -270,3 +318,304 @@ html {
     pointer-events: none;
     cursor: not-allowed;
   }
+
+
+  .team-link {
+    text-decoration: none; 
+    color: black;         
+    font-weight: bold;     
+}
+
+.logo-img {
+  max-width: 100px;
+}
+
+.player-team {
+  text-align: center;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.playerscard {
+  background-color: #ffff;
+  padding: 20px;
+  padding-top: 17px;
+  padding-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: auto;
+}
+
+.playerscard h1, p{
+  text-align: center;
+}
+
+.playerscard img {
+  display: block; 
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.playerscard a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+
+}
+
+.playerstable{
+  /* width: 20%; */
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+
+.playerstable th {
+  border-bottom: 2px solid black;
+  padding: 20px;
+  font-size: 17px;
+  text-align: left;
+}
+
+.playerstable td {
+  border-top: 2px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
+  padding: 20px;
+  font-size: 13px;
+  text-align: center;
+
+}
+
+.userimage {
+  max-width: 40px;
+  margin-right: 50px;
+}
+
+.navbar a:hover::before {
+    width: 0;
+}
+
+
+
+  .usercard {
+    background-color: #ffff;
+    padding: 20px;
+    padding-top: 17px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+  }
+
+
+  .confirmationbutton{
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: #1b1b1b;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 2.5;
+    transition: 0.3s;
+    width: 100%;
+    /* margin-top: 15px; */
+    }
+
+
+
+  .usercard img {
+    display: block; 
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+
+  .usercard a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+  }
+
+
+  .forgot-password {
+    display: block;
+    margin: 10px 0;
+    text-align: right;
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+/* responsive design */
+
+
+.userimage {
+  display: inline-block; 
+  width: 40px;
+  border-radius: 50%; 
+}
+
+.user-text {
+  display: none; 
+}
+
+
+h1.text-center {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.text-center.text-danger {
+  color: red;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.team-item {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.team-text {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.team-text:hover {
+  color: #666869; 
+}
+
+.pagination {
+  justify-content: center; 
+}
+
+.pagination .page-item .page-link {
+  color: #333;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+}
+
+.pagination .page-item .page-link:hover {
+  color: #fff;
+  background-color: #666869;
+  border-color: #666869;
+}
+
+.userdisplay{
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .navbar ul {
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 10px;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 0; 
+    margin-bottom: 10px; 
+  }
+
+  .navbar-toggler {
+    display: block; 
+  }
+  
+  .logo-img {
+    width: 150px;
+  }
+
+  .team-item {
+    margin-bottom: 15px; 
+  }
+  h1.text-center {
+    font-size: 22px; 
+  }
+
+  .userimage {
+    display: none;
+  }
+
+  .user-text {
+    display: inline-block; 
+    font-size: 20px; 
+    color: #f2f2f2; 
+    font-weight: bold; 
+    padding: 5px 10px; 
+    background-color: rgba(102, 104, 105, 0.1); 
+    border-radius: 5px; 
+  }
+
+  .userdisplay{
+    display: inline-block;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 10px; 
+  }
+  .navbar a {
+    font-size: 18px; 
+  }
+
+  .team-text {
+    font-size: 16px; 
+  }
+  h1.text-center {
+    font-size: 20px; 
+  }
+
+  .userdisplay{
+    display: none;
+  }
+}

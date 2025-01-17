@@ -1,18 +1,29 @@
 <x-layout title="Table Standing">
 
+    <h1 style="text-align: center;">All Futsal Teams</h1>
 
-    <h1 style='text-align: center'>All Futsal Teams</h1>
-    @foreach ($teams as $team)
-        <p style='text-align: center'>
-            <a href="/league/{{$team->id}}">
-                {{$team->team_name}} - Points: {{$team->points}}
-            </a>
+    @if (isset($message))
+        <p style="text-align: center; color: red;">
+            {{ $message }}
         </p>
-    @endforeach
+    @else
+        @auth
+            @foreach ($teams as $team)
+                <p>
+                    <a href="{{ url('/league/' . $team->id) }}" class="team-text">
+                        {{ $team->team_name }} - Points: {{ $team->points }}
+                    </a>
+                </p>
+            @endforeach
 
-    <br><br>
-    <div class="pagination" style="text-align: center;">
-        {{$teams->links()}} 
-    </div>
-    
+            <div class="pagination" style="text-align: center;">
+                {{ $teams->links() }}
+            </div>
+        @endauth
+
+        @guest
+            <p style="text-align: center;">Please log in to view the teams and standings.</p>
+        @endguest
+    @endif
+
 </x-layout>

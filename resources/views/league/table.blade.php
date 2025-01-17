@@ -5,7 +5,7 @@
         }
     </style>
     
-    <h1 style='text-align: center'>Here's the futsal league standing</h1>
+    <h1 style='text-align: center'>Hudds Uni League Standing</h1>
     
     <table class="center">
         <tr>
@@ -24,7 +24,7 @@
         @foreach ($teams as $team)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td><b>{{ $team->team_name }}</td>
+                <td> <a href="{{ url('/league/' . $team->id) }}" class="team-link"> {{ $team->team_name }} </a> </td>
             <td>{{ $team->games_played }}</td>
             <td>{{ $team->wins }}</td>
             <td>{{ $team->draws }}</td>

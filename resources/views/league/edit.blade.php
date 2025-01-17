@@ -1,5 +1,10 @@
 <x-layout title="Edit a team">
 
+    @if (session('success'))
+    <div class="success">{{ session('success') }}</div> <br>
+    @endif
+    
+
     <form action='/league/{{ $team->id }}' method="POST" class="form">
         @csrf
         @method("PUT")
@@ -48,6 +53,6 @@
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <button type="submit" class="formbutton">Update</button>
+        <button type="submit" class="formbutton" onclick="return confirm('Are you sure you want to update this team')">Update</button>
     </form>
 </x-layout>

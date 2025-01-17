@@ -1,36 +1,53 @@
+
 # Project Overview
+This project is an enhanced Laravel web application designed for managing a Futsal University League by incorporating advanced web technologies and techniques. The application now offers additional features such as improved authentication and authorisation, database relationships, responsive design, and integration with modern tools like Bootstrap for CSS.
 
-This project is a web application for managing a Futsal University League. The application allows administrators to efficiently organize and manage futsal teams, players, match schedules, and results. It provides features such as CRUD operations on teams, players, and match data, search functionality, pagination, and dynamic team standings.
+## Features Implemented
 
-## Features and Functionality
+### Authentication and Authorization
+This feature uses Laravel's built-in authentication system to manage user access. Middleware is used to restrict access based on user roles, such as admins and normal users (e.g., players). This ensures secure, role-based access control by customizing access to specific features. The `can('edit')` gate is implemented to give admins the ability to perform actions that are restricted for normal users. Normal users cannot create, edit, or delete teams or players, while admins have full CRUD access.
 
-### Team Management (CRUD)
-- Admins can create, update, and delete teams participating in the futsal league.
-- Each team has basic details like team name and match statistics (wins, losses, etc.).
-- **Search**: Allows admins to search for teams by name for quick lookups.
-- **Pagination**: Teams are displayed in a paginated list for easy browsing, especially when there are many teams.
-- **Standings**: Team standings are dynamically generated based on points (win = 3, draw = 1, loss = 0) and goal difference (goals scored - goals conceded).
-  - Teams are sorted first by points (descending), and then by goal difference (descending) using the `sortByDesc()` method.
+Two roles are defined: one for normal users and another for admins. Admins can assign the admin role to other users through the user management page. Additionally, access to team and player cards is restricted for users who are not logged in, ensuring secure control over the application's resources.
 
-## Additional Features and Good Practices
+### Eloquent Relationships
+The application uses Eloquent ORM to establish relationships between database tables. For example, a one-to-many relationship exists between `futsal_standings` and `players`.
 
-### Validation
-- Form submissions for creating and updating teams include validation rules to ensure data integrity (e.g., checking if team name, wins, losses, etc. are correctly filled out).
-- Validation is handled using Laravel’s built-in validation system to prevent invalid or incomplete data from being saved to the database.
+### CSS Framework Integration
+Bootstrap was utilised for styling the application. This integration allowed the use of a pre-defined grid system, components, and utility classes to create a responsive and professional design. By adopting Bootstrap, the styling process became more efficient, offering a range of ready-made UI elements, forms, and navbar styling. For the responsive design, it has been used to make the navbar responsive as a sidebar with a menu button that displays all the sidebar’s elements. A quick and efficient way to ...
 
-### Eloquent ORM
-- The application uses Laravel’s Eloquent ORM for database interaction. This provides a clean, efficient, and intuitive way to manage model data without writing raw SQL queries.
+### JavaScript
+A live suggestion search bar was implemented to enhance the user experience by providing real-time search results as users type. This feature dynamically displays relevant suggestions or matches based on the input, enabling admins to find usernames without needing to write down the full username. The search bar utilises efficient algorithms and asynchronous requests to ensure speed and accuracy. This search bar improves usability and reduces search time.
 
-### Pagination
-- Pagination is implemented using Laravel’s `paginate()` function to display a limited number of teams per page, improving performance and usability.
-- Example: `$teams = League::paginate(4);` will show 4 teams per page, with automatic pagination links in the view (`{{$teams->links()}}`).
+The script:
+```html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+```
+enables the responsive functionality of a Bootstrap navbar. It powers interactive features like dropdown menus and the collapsible hamburger menu for smaller screens. By handling these interactions, the script ensures the navbar adapts seamlessly to different devices, enhancing usability and responsiveness.
 
-## Summary
+### Responsive Design
+The application ensures usability across various devices by leveraging Tailwind's utility classes to create a responsive layout. This feature makes the app accessible to a broader audience, particularly mobile users. Further testing is recommended to ensure compatibility across different browsers.
 
-The Futsal University League application allows easy management of teams and standings using Laravel. Key features include:
-- CRUD operations for teams and players
-- Search and pagination for quick team lookups
-- Dynamic standings based on match results
-- Best practices such as data validation and Eloquent ORM usage
+## Database Design
 
-This application ensures a smooth user experience while efficiently managing league data.
+### Schema Overview
+The database design includes tables such as:
+- **Users Table**: Manages authentication and role-based access.
+- **Futsal_standings Table**: Stores team details.
+- **Players Table**: Tracks player profiles and their associations with teams.
+
+### Normalization
+The database follows normalization principles to minimize redundancy and ensure data integrity, resulting in a scalable and efficient structure.
+
+## Challenges Faced
+
+### Role-Based Access Control
+One challenge was managing complex middleware rules for role-based access control. This was addressed by implementing Laravel's Gate and Policy mechanisms.
+
+### Real-Time Updates
+Another challenge involved configuring Vue.js for real-time updates, which required integrating Laravel Echo and Pusher.
+
+### Testing
+Writing comprehensive tests posed difficulties, but focusing on critical features like authentication and database integrity helped overcome this.
+
+## Conclusion
+This enhanced Laravel web application demonstrates effective use of advanced web technologies and tools. By integrating features like authentication and authorisation, Eloquent relationships, responsive design, and dynamic interactivity, it provides a robust and user-friendly platform for managing the Huddersfield University Futsal League.
